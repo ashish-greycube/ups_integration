@@ -1,0 +1,198 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-09-22 03:00:43.621942",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "ups_details_section",
+  "ups_server_url",
+  "ups_app_name",
+  "ups_account_number",
+  "column_break_s2i4a",
+  "ups_oauth_url",
+  "client_id",
+  "client_secret",
+  "section_break_dkdyk",
+  "track_by_reference_number_url",
+  "locale",
+  "check_no_of_days_api",
+  "ref_number_type",
+  "column_break_l5lnh",
+  "destination_country",
+  "destination_zip",
+  "shipper_number",
+  "track_by_inquirynumber_details_section",
+  "track_by_inquiry_number_url",
+  "scheduler_details_section",
+  "check_no_of_days_scheduler",
+  "section_break_okj0u",
+  "status_code_description"
+ ],
+ "fields": [
+  {
+   "default": "https://onlinetools.ups.com/api",
+   "fieldname": "ups_server_url",
+   "fieldtype": "Data",
+   "label": "UPS Server URL",
+   "options": "URL"
+  },
+  {
+   "description": "Apps Name From https://developer.ups.com/apps?loc=en_US",
+   "fieldname": "ups_app_name",
+   "fieldtype": "Data",
+   "label": "UPS App Name"
+  },
+  {
+   "fieldname": "column_break_s2i4a",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "client_id",
+   "fieldtype": "Data",
+   "label": "UPS Client ID"
+  },
+  {
+   "fieldname": "client_secret",
+   "fieldtype": "Data",
+   "label": "UPS Client Secret"
+  },
+  {
+   "description": "This details are taken from \nhttps://developer.ups.com/tag/Tracking?loc=en_US#operation/Reference%20Tracking%20API",
+   "fieldname": "section_break_dkdyk",
+   "fieldtype": "Section Break",
+   "label": "UPS - Track By Reference Number Details"
+  },
+  {
+   "default": "/track/v1/reference/details/",
+   "fieldname": "track_by_reference_number_url",
+   "fieldtype": "Data",
+   "label": "Track By Reference Number URL"
+  },
+  {
+   "default": "en_US",
+   "description": "Language and country code of the user, separated by an underscore. Default value is 'en_US'",
+   "fieldname": "locale",
+   "fieldtype": "Data",
+   "label": "Locale"
+  },
+  {
+   "default": "null",
+   "description": "The Destination Country associated with above reference number",
+   "fieldname": "destination_country",
+   "fieldtype": "Data",
+   "label": "Destination Country"
+  },
+  {
+   "default": "null",
+   "description": "The Destination Zip associated with above reference number",
+   "fieldname": "destination_zip",
+   "fieldtype": "Data",
+   "label": "Destination Zip"
+  },
+  {
+   "default": "null",
+   "description": "The Shipper Number (Account Number) associated with above reference number",
+   "fieldname": "shipper_number",
+   "fieldtype": "Data",
+   "label": "Shipper Number"
+  },
+  {
+   "default": "SmallPackage. Valid values: SmallPackage, fgv",
+   "description": "The Reference number type which will define the tracking information is related to small package or fgv",
+   "fieldname": "ref_number_type",
+   "fieldtype": "Data",
+   "label": "Ref Number Type"
+  },
+  {
+   "fieldname": "column_break_l5lnh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "DN with submit status and in date range of today and past N days such that UPS tracking status is not final (ex Delivered) will be auto checked",
+   "fieldname": "scheduler_details_section",
+   "fieldtype": "Section Break",
+   "label": "Scheduler Details For DN"
+  },
+  {
+   "fieldname": "ups_details_section",
+   "fieldtype": "Section Break",
+   "label": "UPS Details"
+  },
+  {
+   "description": "DN will not be eligible for API call once it reaches Jammy Description in [\"Exception\", \"DN Not Found In UPS\", \"ERPNext Exception\", \"Cancelled\", \"Delivered\", \"Not Found\", \"Processed\"]",
+   "fieldname": "section_break_okj0u",
+   "fieldtype": "Section Break",
+   "label": "API Response Status Code Details"
+  },
+  {
+   "fieldname": "status_code_description",
+   "fieldtype": "Table",
+   "label": "Status Code Description",
+   "options": "UPS Tracking Code Descriptions"
+  },
+  {
+   "fieldname": "ups_account_number",
+   "fieldtype": "Data",
+   "label": "UPS account number"
+  },
+  {
+   "default": "Today",
+   "description": "API will check eligible Delivery Note for say past 10 days",
+   "fieldname": "check_no_of_days_api",
+   "fieldtype": "Int",
+   "label": "Check For Past No Of Days"
+  },
+  {
+   "description": "Scheduler will check eligible Delivery Note for say past 10 days",
+   "fieldname": "check_no_of_days_scheduler",
+   "fieldtype": "Int",
+   "label": "Check For Past No of Days"
+  },
+  {
+   "default": " https://onlinetools.ups.com/security/v1/oauth/token",
+   "fieldname": "ups_oauth_url",
+   "fieldtype": "Data",
+   "label": "UPS OAuth URL",
+   "options": "URL"
+  },
+  {
+   "default": "/track/v1/details/",
+   "description": "This Details are taken from https://developer.ups.com/tag/Tracking?loc=en_US#operation/getSingleTrackResponseUsingGET",
+   "fieldname": "track_by_inquiry_number_url",
+   "fieldtype": "Data",
+   "label": "Track By Inquiry Number URL",
+   "options": "URL"
+  },
+  {
+   "fieldname": "track_by_inquirynumber_details_section",
+   "fieldtype": "Section Break",
+   "label": "UPS-Track By Inquiry Number Details"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2025-10-06 07:04:16.336012",
+ "modified_by": "Administrator",
+ "module": "UPS Integration",
+ "name": "Parcel Service Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

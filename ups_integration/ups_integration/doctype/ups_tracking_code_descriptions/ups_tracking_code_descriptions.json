@@ -1,0 +1,46 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-09-23 04:02:25.333708",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "status_code",
+  "jammy_description",
+  "ups_description"
+ ],
+ "fields": [
+  {
+   "fieldname": "status_code",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Status Code"
+  },
+  {
+   "fieldname": "jammy_description",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Jammy Description"
+  },
+  {
+   "fieldname": "ups_description",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "UPS Description"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-10-06 07:26:47.235902",
+ "modified_by": "Administrator",
+ "module": "UPS Integration",
+ "name": "UPS Tracking Code Descriptions",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

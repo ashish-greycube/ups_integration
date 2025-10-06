@@ -27,7 +27,7 @@ app_license = "MIT"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-# doctype_js = {"doctype" : "public/js/doctype.js"}
+doctype_js = {"Delivery Note" : "public/js/delivery_note.js"}
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -124,26 +124,19 @@ app_license = "MIT"
 # 	}
 # }
 
+# After Migrate
+after_migrate = ["ups_integration.api.fillup_status_code_data"]
+
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-# 	"all": [
-# 		"ups_integration.tasks.all"
-# 	],
-# 	"daily": [
-# 		"ups_integration.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"ups_integration.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"ups_integration.tasks.weekly"
-# 	],
-# 	"monthly": [
-# 		"ups_integration.tasks.monthly"
-# 	],
-# }
+scheduler_events = {
+	"cron": {
+        "0 8 * * *" : [
+            "ups_integration.api.update_dn_by_schedular"
+        ]
+    }
+}
 
 # Testing
 # -------

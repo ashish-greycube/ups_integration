@@ -1,0 +1,49 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-09-24 01:01:28.747176",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "tracking_id",
+  "status_code",
+  "status_description"
+ ],
+ "fields": [
+  {
+   "allow_on_submit": 1,
+   "fieldname": "status_description",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Status Description"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "tracking_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Tracking ID"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "status_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Status Code"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-09-29 01:57:55.360128",
+ "modified_by": "Administrator",
+ "module": "UPS Integration",
+ "name": "UPS Tracking Detail",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
