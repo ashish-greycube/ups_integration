@@ -45,7 +45,7 @@ def make_api_request(
             else:
                 error = f"status_code: {response.status_code}",
             frappe.log_error(
-                title=f"MFC API failed.",
+                title=f"UPS API failed.",
                 message=f"Status: {response.status_code} \n\nUrl: {url} \n\nError: {error}",
             )
 
