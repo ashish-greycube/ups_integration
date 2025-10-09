@@ -45,7 +45,7 @@ def make_api_request(
             else:
                 error = f"status_code: {response.status_code}",
             frappe.log_error(
-                title=f"UPS API failed.",
+                title=f"MFC API failed.",
                 message=f"Status: {response.status_code} \n\nUrl: {url} \n\nError: {error}",
             )
 
@@ -118,11 +118,13 @@ class UPSClient:
                 auth=(self.settings.client_id,self.settings.client_secret)
             )
             data = frappe._dict(response.json())
+            expire_time = cint(data.expires_in)
             frappe.cache().set_value(
                 self.ACCESS_TOKEN_KEY,
                 data.access_token,
-                expires_in_sec=cint(data.expires_in )- 300,
+                expires_in_sec=expire_time-300,
             )
+            print(expire_time)
             return data.access_token
         except Exception as e:
             frappe.log_error(
