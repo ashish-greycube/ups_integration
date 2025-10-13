@@ -221,6 +221,10 @@ def set_data_in_delivery_note(delivery_note, result, error, tracking_method):
             dn_doc.custom_tracking_code = parent_ups_tracking_code
             dn_doc.custom_tracking = parent_jammy_status_code
             dn_doc.custom_last_api_call = now()
+            if parent_jammy_status_code == "Processing" and dn_doc.custom_last_date_for_processing_status == None:
+                dn_doc.custom_last_date_for_processing_status = today()
+            if parent_jammy_status_code != "Processing":
+                dn_doc.custom_last_date_for_processing_status = None
 
             for package in packages:
                 dn_doc.append("custom_tracking_details", {
@@ -241,6 +245,11 @@ def set_data_in_delivery_note(delivery_note, result, error, tracking_method):
                 dn_doc.custom_tracking_code = updated_status_code
                 dn_doc.custom_tracking = upadated_status_description
                 dn_doc.custom_last_api_call = now()
+                if upadated_status_description == "Processing" and dn_doc.custom_last_date_for_processing_status == None:
+                    dn_doc.custom_last_date_for_processing_status = today()
+                if upadated_status_description != "Processing":
+                    dn_doc.custom_last_date_for_processing_status = None
+                    
                 dn_doc.save(ignore_permissions=True)
                 frappe.msgprint("Latest Tracking Details Of {0} Saved!".format(dn_doc.tracking_number), alert = True)
 

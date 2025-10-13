@@ -1,0 +1,43 @@
+{
+    "name": "Processing Time More Than 3 Days",
+    "owner": "Administrator",
+    "creation": "2025-10-10 01:15:24.516695",
+    "modified": "2025-10-10 02:51:20.940331",
+    "modified_by": "Administrator",
+    "docstatus": 0,
+    "idx": 0,
+    "enabled": 1,
+    "is_standard": 0,
+    "channel": "Email",
+    "subject": "{{ doc.name }} takes more than 3 days for processing",
+    "event": "Value Change",
+    "document_type": "Delivery Note",
+    "days_in_advance": 0,
+    "value_changed": "custom_tracking",
+    "sender": "Support",
+    "send_system_notification": 0,
+    "sender_email": "support@jammyinc.com",
+    "condition": "doc.custom_last_date_for_processing_status!=None and doc.custom_tracking==\"Processing\" and frappe.utils.getdate(doc.custom_last_date_for_processing_status) < frappe.utils.getdate(frappe.utils.add_to_date(frappe.utils.nowdate(), days=-3))",
+    "send_to_all_assignees": 0,
+    "message_type": "Markdown",
+    "message": "<h3>Processing time took more than 3 days</h3>\n\n<p>Delivery Note <b>{{ doc.name }}</b> with Tracking ID <b>{{ doc.tracking_number }}</b> takes more than 3 days for processing.</p>",
+    "attach_print": 0,
+    "doctype": "Notification",
+    "recipients": [
+        {
+            "name": "cr6tsijlgg",
+            "owner": "Administrator",
+            "creation": "2025-10-10 01:15:24.516695",
+            "modified": "2025-10-10 02:51:20.940331",
+            "modified_by": "Administrator",
+            "docstatus": 0,
+            "idx": 1,
+            "cc": "jigar.greycube@gmail.com",
+            "parent": "Processing Time More Than 3 Days",
+            "parentfield": "recipients",
+            "parenttype": "Notification",
+            "doctype": "Notification Recipient"
+        }
+    ],
+    "__last_sync_on": "2025-10-13T05:08:31.345Z"
+}
