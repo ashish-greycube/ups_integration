@@ -125,7 +125,10 @@ doctype_js = {"Delivery Note" : "public/js/delivery_note.js"}
 # }
 
 # After Migrate
-after_migrate = ["ups_integration.api.fillup_status_code_data"]
+after_migrate = [
+    "ups_integration.api.fillup_status_code_data",
+    "ups_integration.fedex_integration.fill_status_code_details_in_parcel_service_settings",
+]
 
 # Scheduled Tasks
 # ---------------
@@ -134,6 +137,9 @@ scheduler_events = {
 	"cron": {
         "0 8 * * *" : [
             "ups_integration.api.update_dn_by_schedular"
+        ],
+        "30 8 * * *" : [
+            "ups_integration.fedex_integration.check_and_update_eligible_delivery_note_by_scheduler"
         ]
     }
 }

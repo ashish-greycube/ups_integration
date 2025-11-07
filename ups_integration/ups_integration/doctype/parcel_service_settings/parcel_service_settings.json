@@ -7,6 +7,7 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "ups_tab",
   "ups_details_section",
   "ups_server_url",
   "ups_app_name",
@@ -29,7 +30,33 @@
   "scheduler_details_section",
   "check_no_of_days_scheduler",
   "section_break_okj0u",
-  "status_code_description"
+  "status_code_description",
+  "fedex_tab",
+  "fedex_details_section",
+  "fedex_server_url",
+  "fedex_oauth_token_url",
+  "column_break_jneio",
+  "fedex_client_id",
+  "fedex_client_secret",
+  "section_break_nxoji",
+  "fedex_app_name",
+  "account_number_details",
+  "section_break_exynj",
+  "fedex_track_by_reference_number_url",
+  "x_locale",
+  "check_for_no_of_days",
+  "column_break_zxr59",
+  "include_detailed_scans_in_response",
+  "reference_type",
+  "section_break_wpv8t",
+  "fedex_track_by_tracking_id",
+  "column_break_b3cql",
+  "include_detailed_scan",
+  "section_break_etkvb",
+  "check_past_no_of_days_for_scheduler",
+  "api_response_status_details_section",
+  "tracking_code_description",
+  "error_code_description"
  ],
  "fields": [
   {
@@ -63,7 +90,7 @@
    "description": "This details are taken from \nhttps://developer.ups.com/tag/Tracking?loc=en_US#operation/Reference%20Tracking%20API",
    "fieldname": "section_break_dkdyk",
    "fieldtype": "Section Break",
-   "label": "UPS  API - Track By Reference Number Details"
+   "label": "UPS - Track By Reference Number Details"
   },
   {
    "default": "/track/v1/reference/details/",
@@ -111,10 +138,10 @@
    "fieldtype": "Column Break"
   },
   {
-   "description": "DN with submit status and in date range of today and past N days such that UPS tracking status is not final (ex Delivered) and DN.ship_via is like 'UPS%' will be auto checked",
+   "description": "DN with submit status and in date range of today and past N days such that UPS tracking status is not final (ex Delivered) will be auto checked",
    "fieldname": "scheduler_details_section",
    "fieldtype": "Section Break",
-   "label": "Scheduler Details For DN in ERPNext"
+   "label": "Scheduler Details For DN"
   },
   {
    "fieldname": "ups_details_section",
@@ -143,13 +170,13 @@
    "description": "API will check eligible Delivery Note for say past 10 days",
    "fieldname": "check_no_of_days_api",
    "fieldtype": "Int",
-   "label": "Check in UPS For Past No Of Days"
+   "label": "Check For Past No Of Days"
   },
   {
    "description": "Scheduler will check eligible Delivery Note for say past 10 days",
    "fieldname": "check_no_of_days_scheduler",
    "fieldtype": "Int",
-   "label": "Check ERPNext DN For Past No of Days"
+   "label": "Check For Past No of Days"
   },
   {
    "default": " https://onlinetools.ups.com/security/v1/oauth/token",
@@ -169,13 +196,163 @@
   {
    "fieldname": "track_by_inquirynumber_details_section",
    "fieldtype": "Section Break",
-   "label": "UPS API -Track By Inquiry Number Details"
+   "label": "UPS-Track By Inquiry Number Details"
+  },
+  {
+   "fieldname": "fedex_tab",
+   "fieldtype": "Tab Break",
+   "label": "FedEx"
+  },
+  {
+   "fieldname": "fedex_details_section",
+   "fieldtype": "Section Break",
+   "label": "FedEx Details"
+  },
+  {
+   "default": "https://apis.fedex.com",
+   "fieldname": "fedex_server_url",
+   "fieldtype": "Data",
+   "label": "FedEx Server URL",
+   "options": "URL"
+  },
+  {
+   "fieldname": "ups_tab",
+   "fieldtype": "Tab Break",
+   "label": "UPS"
+  },
+  {
+   "fieldname": "fedex_app_name",
+   "fieldtype": "Data",
+   "label": "FedEx App Name"
+  },
+  {
+   "fieldname": "column_break_jneio",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "/oauth/token",
+   "fieldname": "fedex_oauth_token_url",
+   "fieldtype": "Data",
+   "label": "FedEx OAuth Token URL",
+   "options": "URL"
+  },
+  {
+   "fieldname": "fedex_client_id",
+   "fieldtype": "Data",
+   "label": "FedEx Client ID"
+  },
+  {
+   "fieldname": "fedex_client_secret",
+   "fieldtype": "Data",
+   "label": "FedEx Client Secret"
+  },
+  {
+   "description": "For more information about this section refer: https://developer.fedex.com/api/en-us/catalog/track/v1/docs.html#operation/Track%20by%20References",
+   "fieldname": "section_break_exynj",
+   "fieldtype": "Section Break",
+   "label": "FedEx - Track By Reference Number Details"
+  },
+  {
+   "default": "/track/v1/referencenumbers/",
+   "fieldname": "fedex_track_by_reference_number_url",
+   "fieldtype": "Data",
+   "label": "Track By Reference Number URL",
+   "options": "URL"
+  },
+  {
+   "description": "For more information about this refer: https://developer.fedex.com/api/en-us/catalog/track/v1/docs.html#operation/Track%20by%20Tracking%20Number",
+   "fieldname": "section_break_wpv8t",
+   "fieldtype": "Section Break",
+   "label": "FedEx - Track By Tracking ID Details"
+  },
+  {
+   "default": "/track/v1/trackingnumbers",
+   "fieldname": "fedex_track_by_tracking_id",
+   "fieldtype": "Data",
+   "label": "Track By Tracking ID URL",
+   "options": "URL"
+  },
+  {
+   "default": "en_US",
+   "fieldname": "x_locale",
+   "fieldtype": "Data",
+   "label": "X-locale"
+  },
+  {
+   "fieldname": "include_detailed_scans_in_response",
+   "fieldtype": "Select",
+   "label": "Include Detailed Scans In Response",
+   "options": "True\nFalse"
+  },
+  {
+   "fieldname": "reference_type",
+   "fieldtype": "Select",
+   "label": "Reference Type",
+   "options": "BILL_OF_LADING\nCOD_RETURN_TRACKING_NUMBER\nCUSTOMER_AUTHORIZATION_NUMBER\nCUSTOMER_REFERENCE\nDEPARTMENT\nDOCUMENT_AIRWAY_BILL\nEXPRESS_ALTERNATE_REFERENCE\nFEDEX_OFFICE_JOB_ORDER_NUMBER\nFREE_FORM_REFERENCE\nGROUND_INTERNATIONAL\nGROUND_SHIPMENT_ID\nINTERNATIONAL_DISTRIBUTION\nINVOICE\nJOB_GLOBAL_TRACKING_NUMBER\nORDER_GLOBAL_TRACKING_NUMBER\nORDER_TO_PAY_NUMBER\nPART_NUMBER\nPARTNER_CARRIER_NUMBER\nPURCHASE_ORDER\nREROUTE_TRACKING_NUMBER\nRETURN_MATERIALS_AUTHORIZATION\nRETURNED_TO_SHIPPER_TRACKING_NUMBER\nSHIPPER_REFERENCE\nTRANSBORDER_DISTRIBUTION\nTRANSPORTATION_CONTROL_NUMBER\nVIRTUAL_CONSOLIDATION"
+  },
+  {
+   "fieldname": "column_break_zxr59",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_b3cql",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "include_detailed_scan",
+   "fieldtype": "Select",
+   "label": "Include Detailed Scan ",
+   "options": "True\nFalse"
+  },
+  {
+   "fieldname": "api_response_status_details_section",
+   "fieldtype": "Section Break",
+   "label": "API Response Status Details"
+  },
+  {
+   "fieldname": "tracking_code_description",
+   "fieldtype": "Table",
+   "label": "Tracking Code Description",
+   "options": "FedEx Tracking Code Description"
+  },
+  {
+   "fieldname": "error_code_description",
+   "fieldtype": "Table",
+   "label": "Error Code Description",
+   "options": "FedEx Error Code Description"
+  },
+  {
+   "fieldname": "section_break_nxoji",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "account_number_details",
+   "fieldtype": "Table",
+   "label": "Account Number Details",
+   "options": "FedEx Account Number Details"
+  },
+  {
+   "description": "API will check for past no of days to narrow search results.",
+   "fieldname": "check_for_no_of_days",
+   "fieldtype": "Int",
+   "label": "Check For No Of Days"
+  },
+  {
+   "description": "Delivery Note With Status Submitted And Tracking Status Is Not Final (I.E Delivered) Such That In The Date Range From Today To Past N Days Will Be Eligible For Auto Tracking.",
+   "fieldname": "section_break_etkvb",
+   "fieldtype": "Section Break",
+   "label": "Scheduler Details For DN"
+  },
+  {
+   "fieldname": "check_past_no_of_days_for_scheduler",
+   "fieldtype": "Int",
+   "label": "Check Past No Of Days For Scheduler"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2025-10-07 23:38:58.277485",
+ "modified": "2025-11-05 00:35:34.829022",
  "modified_by": "Administrator",
  "module": "UPS Integration",
  "name": "Parcel Service Settings",

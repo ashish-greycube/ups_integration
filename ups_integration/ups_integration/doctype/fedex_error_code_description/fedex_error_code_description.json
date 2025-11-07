@@ -1,46 +1,42 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2025-09-24 01:01:28.747176",
- "default_view": "List",
+ "creation": "2025-11-02 22:47:11.182279",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "tracking_id",
-  "status_code",
-  "status_description"
+  "fedex_error_code",
+  "fedex_code_description",
+  "jammy_description"
  ],
  "fields": [
   {
-   "allow_on_submit": 1,
-   "fieldname": "status_description",
+   "fieldname": "fedex_error_code",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Jammy Status Description"
+   "label": "FedEx Error Code"
   },
   {
-   "allow_on_submit": 1,
-   "fieldname": "tracking_id",
-   "fieldtype": "Data",
+   "fieldname": "fedex_code_description",
+   "fieldtype": "Small Text",
    "in_list_view": 1,
-   "label": "Tracking ID"
+   "label": "FedEx Code Description"
   },
   {
-   "allow_on_submit": 1,
-   "fieldname": "status_code",
+   "fieldname": "jammy_description",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Status Code"
+   "label": "Jammy Description"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-11-04 22:28:04.308903",
+ "modified": "2025-11-04 22:54:44.782156",
  "modified_by": "Administrator",
  "module": "UPS Integration",
- "name": "UPS Tracking Detail",
+ "name": "FedEx Error Code Description",
  "owner": "Administrator",
  "permissions": [],
  "sort_field": "modified",
