@@ -1,0 +1,46 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-11-12 23:03:58.612009",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "response_code",
+  "priority_error_code_description",
+  "jammy_description"
+ ],
+ "fields": [
+  {
+   "fieldname": "response_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Response Code"
+  },
+  {
+   "fieldname": "priority_error_code_description",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Priority Error Code Description"
+  },
+  {
+   "fieldname": "jammy_description",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Jammy Description"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-11-14 00:20:15.073730",
+ "modified_by": "Administrator",
+ "module": "UPS Integration",
+ "name": "Priority API Error Code Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -56,7 +56,21 @@
   "check_past_no_of_days_for_scheduler",
   "api_response_status_details_section",
   "tracking_code_description",
-  "error_code_description"
+  "error_code_description",
+  "priority_1_tab",
+  "priority_1_details_section",
+  "priority_base_url",
+  "column_break_arpdh",
+  "priority_api_key",
+  "tracking_api_details_section",
+  "priority_tracking_url",
+  "column_break_o5pkp",
+  "shipment_identifier_type",
+  "scheduler_details_for_dn_section",
+  "past_no_of_days_for_scheduler",
+  "api_response_code_details_section",
+  "response_code_details",
+  "error_code_details"
  ],
  "fields": [
   {
@@ -138,7 +152,7 @@
    "fieldtype": "Column Break"
   },
   {
-   "description": "DN with submit status and in date range of today and past N days such that UPS tracking status is not final (ex Delivered) will be auto checked",
+   "description": "DN with submit status and in date range of today and past N days such that UPS tracking status is not final (ex Delivered) will be auto checked On Every Morning At 8:00",
    "fieldname": "scheduler_details_section",
    "fieldtype": "Section Break",
    "label": "Scheduler Details For DN"
@@ -338,7 +352,7 @@
    "label": "Check For No Of Days"
   },
   {
-   "description": "Delivery Note With Status Submitted And Tracking Status Is Not Final (I.E Delivered) Such That In The Date Range From Today To Past N Days Will Be Eligible For Auto Tracking.",
+   "description": "Delivery Note With Status Submitted And Tracking Status Is Not Final (I.E Delivered) Such That In The Date Range From Today To Past N Days Will Be Eligible For Auto Tracking On Every Morning At 8:30.",
    "fieldname": "section_break_etkvb",
    "fieldtype": "Section Break",
    "label": "Scheduler Details For DN"
@@ -347,12 +361,88 @@
    "fieldname": "check_past_no_of_days_for_scheduler",
    "fieldtype": "Int",
    "label": "Check Past No Of Days For Scheduler"
+  },
+  {
+   "fieldname": "priority_1_tab",
+   "fieldtype": "Tab Break",
+   "label": "Priority 1"
+  },
+  {
+   "fieldname": "priority_1_details_section",
+   "fieldtype": "Section Break",
+   "label": "Priority 1 Details"
+  },
+  {
+   "default": "https://api.priority1.com",
+   "fieldname": "priority_base_url",
+   "fieldtype": "Data",
+   "label": "Priority Base URL",
+   "options": "URL"
+  },
+  {
+   "fieldname": "column_break_arpdh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "priority_api_key",
+   "fieldtype": "Data",
+   "label": "Priority API Key"
+  },
+  {
+   "fieldname": "tracking_api_details_section",
+   "fieldtype": "Section Break",
+   "label": "Tracking API Details"
+  },
+  {
+   "fieldname": "priority_tracking_url",
+   "fieldtype": "Data",
+   "label": "Priority Tracking URL",
+   "options": "URL"
+  },
+  {
+   "fieldname": "shipment_identifier_type",
+   "fieldtype": "Select",
+   "label": "Shipment Identifier Type",
+   "options": "PURCHASE_ORDER\nPRO\nBILL_OF_LADING\nCUSTOMER_REFERENCE\nPICKUP\nEXTERNAL\nSALES_ORDER"
+  },
+  {
+   "fieldname": "column_break_o5pkp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Delivery Note With Status Submitted And Tracking Status Is Not Final (I.E Delivered) Such That In The Date Range From Today To Past N Days Will Be Eligible For Auto Tracking On Every Morning At 8:45.",
+   "fieldname": "scheduler_details_for_dn_section",
+   "fieldtype": "Section Break",
+   "label": "Scheduler Details For DN"
+  },
+  {
+   "fieldname": "past_no_of_days_for_scheduler",
+   "fieldtype": "Data",
+   "label": "Past No of Days For Scheduler"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "api_response_code_details_section",
+   "fieldtype": "Section Break",
+   "label": "API Response Code Details"
+  },
+  {
+   "fieldname": "response_code_details",
+   "fieldtype": "Table",
+   "label": "Response Code Details",
+   "options": "Priority API Response Code Details"
+  },
+  {
+   "fieldname": "error_code_details",
+   "fieldtype": "Table",
+   "label": "Error Code Details",
+   "options": "Priority API Error Code Details"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2025-11-05 00:35:34.829022",
+ "modified": "2025-11-14 03:41:52.771833",
  "modified_by": "Administrator",
  "module": "UPS Integration",
  "name": "Parcel Service Settings",

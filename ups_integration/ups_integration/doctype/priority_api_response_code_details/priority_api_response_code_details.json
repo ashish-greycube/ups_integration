@@ -1,0 +1,45 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-11-12 22:59:20.611698",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "response_code",
+  "priority_status_description",
+  "jammy_description"
+ ],
+ "fields": [
+  {
+   "fieldname": "response_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Response Code"
+  },
+  {
+   "fieldname": "priority_status_description",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Priority Status Description"
+  },
+  {
+   "fieldname": "jammy_description",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Jammy Description"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-11-12 22:59:20.611698",
+ "modified_by": "Administrator",
+ "module": "UPS Integration",
+ "name": "Priority API Response Code Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

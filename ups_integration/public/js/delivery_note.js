@@ -29,5 +29,19 @@ frappe.ui.form.on("Delivery Note", {
                 })
             })
         }
+
+        if (frm.doc.docstatus == 1 && frm.doc.ship_via.startsWith("PRIORITY ")) {
+            frm.add_custom_button("Get Priority Details", function () {
+                frappe.call({
+                    method: 'ups_integration.priority_integration.fetch_priority_tracking_details',
+                    args: {
+                        'dn': frm.doc.name
+                    },
+                    callback: function (res) {
+                        console.log(res);
+                    }
+                })
+            });
+        }
     }
 });
